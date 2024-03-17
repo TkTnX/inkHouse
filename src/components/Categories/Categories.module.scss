@@ -1,0 +1,32 @@
+.reproductions__categories {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.reproductions__category {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: var(--btns-focus);
+
+  padding: 10px 20px;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    background-color: var(--mainColor);
+    color: #fff;
+  }
+  &:focus {
+    background-color: var(--btns-focus);
+    border: 1px solid var(--mainColor);
+  }
+  &:active {
+    background-color: var(--btnsColor);
+    border-color: var(--btnsColor);
+    color: #fff;
+  }
+}

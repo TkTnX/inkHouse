@@ -1,0 +1,22 @@
+.reproductions {
+  margin-top: 70px;
+}
+
+.reproductions__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.reproductions__title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.reproductions__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}

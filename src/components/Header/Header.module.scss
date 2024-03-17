@@ -1,0 +1,96 @@
+@import "./../../scss/mixins";
+
+.header {
+  padding: 33px 0;
+  background-color: var(--mainColor-light);
+  @include bigPhone() {
+    background-color: #fff;
+  }
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include smallTablet() {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.header__list {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  @include smallTablet() {
+    border-top: 1px solid #c3d1c6;
+  }
+  @include bigPhone() {
+    display: none;
+  }
+}
+
+.header__item {
+  @include smallTablet() {
+    padding-top: 16px;
+  }
+}
+
+.header__link {
+  font-size: 20px;
+  @include normalTablet() {
+    font-size: 18px;
+  }
+}
+
+.header__mobileControls {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--mainColor-light);
+  padding: 19px 15px;
+
+  @include bigPhone() {
+    display: flex;
+  }
+}
+
+.header__mobileBtn {
+  @include headerMobileBtn;
+}
+
+.header__popupOpenned {
+  @include headerMobileBtn() {
+    &:first-child {
+      transform: translateY(5px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:last-child {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+.header__mobileMenu {
+  background-color: var(--mainColor-light);
+  transform: translateX(-500%);
+  transition: all 0.6s;
+  height: 0;
+}
+
+.header__mobileMenuOppened {
+  background-color: var(--mainColor-light);
+  transform: translateX(0);
+  transition: all 0.6s;
+  height: auto;
+}
+
+.header__mobileList {
+  display: grid;
+  gap: 50px;
+  padding: 15px;
+}

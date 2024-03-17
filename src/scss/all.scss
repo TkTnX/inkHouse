@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900);
+@import "./libs/reset";
+:root {
+  --mainColor: #598d66;
+
+  --btnsColor: #376b44;
+  --btns-focus: #d4e8d9;
+
+  --mainColor-light: #e1ede6;
+  --text-color: #2c2d35;
+
+  --desc-color: #86928b;
+
+  --font-size: 20px;
+  --font-weight: 500;
+
+  --font-main: "Raleway", sans-serif;
+
+  --container-width: 1170px;
+  --container-padding: 15px;
+}
+
+body {
+  font-family: var(--font-main);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: var(--container-width);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--mainColor);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.text-1 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--desc-color);
+}
+
+.btn-1 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  color: var(--mainColor);
+  border: 1px solid var(--mainColor);
+
+  padding: 21px 60px;
+
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    background-color: var(--mainColor);
+    color: #fff;
+  }
+  &:focus {
+    background-color: var(--btns-focus);
+    border: 1px solid var(--mainColor);
+  }
+  &:active {
+    background-color: var(--btnsColor);
+    border-color: var(--btnsColor);
+    color: #fff;
+  }
+}
+
+.active-category {
+  background-color: var(--btnsColor);
+  border-color: var(--btnsColor);
+  color: #fff;
+}

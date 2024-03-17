@@ -1,0 +1,31 @@
+.title {
+  margin-top: 20px;
+}
+
+.title__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title__text {
+}
+
+.title__title {
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1.1;
+  padding-bottom: 20px;
+  span {
+    color: var(--mainColor);
+  }
+}
+
+.title__desc {
+  padding-bottom: 60px;
+}
+
+.title__btn {
+  margin-top: 60px;
+  max-width: 227px;
+}

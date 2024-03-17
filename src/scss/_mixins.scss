@@ -1,0 +1,35 @@
+@mixin normalTablet() {
+  @media (max-width: 689px) {
+    @content;
+  }
+}
+
+@mixin smallTablet() {
+  @media (max-width: 638px) {
+    @content;
+  }
+}
+
+@mixin bigPhone() {
+  @media (max-width: 475px) {
+    @content;
+  }
+}
+
+@mixin headerMobileBtn() {
+  @media (max-width: 475px) {
+    width: 22px;
+    height: 18px;
+    display: grid;
+    justify-content: space-between;
+
+    span {
+      height: 3px;
+      width: 22px;
+      background-color: #4c5866;
+      transition: all 0.2s ease-in;
+      @content;
+    }
+  }
+}
+
