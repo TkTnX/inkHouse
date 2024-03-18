@@ -1,0 +1,33 @@
+.cart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  background-color: var(--mainColor-light);
+  max-height: 100%;
+  overflow: auto;
+
+  padding: 20px;
+}
+
+.cart__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart__closeBtn {
+  width: 40px;
+  cursor: pointer;
+}
+
+.cart__titleText {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.removeFromCart {
+  border: 1px solid black;
+  margin-bottom: 5px;
+  cursor: pointer;
+}

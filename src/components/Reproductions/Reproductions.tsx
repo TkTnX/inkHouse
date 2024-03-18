@@ -9,16 +9,23 @@ import Skeleton from "../skeleton/Skeleton";
 export const Reproductions: React.FC = () => {
   const [reprData, setReprData] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
   const [categoryValue, setCategoryValue] = useState<string>("Франция");
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get(
-        `https://d4eab740102217d9.mokky.dev/reproductions?country=${categoryValue}`
-      )
-      .then((res) => setReprData(res.data))
-      .finally(() => setIsLoading(false));
+
+    try {
+      axios
+        .get(
+          `https://d4eab740102217d9.mokky.dev/reproductions?country=${categoryValue}`
+        )
+        .then((res) => setReprData(res.data))
+
+        .finally(() => setIsLoading(false));
+    } catch (error) {
+      setIsError(true);
+    }
   }, [categoryValue]);
 
   return (
@@ -28,6 +35,7 @@ export const Reproductions: React.FC = () => {
           <h2 className={s.reproductions__title}>Репродукции</h2>
           <Categories setCategoryValue={setCategoryValue} />
         </div>
+        {isError && <h2>ошибка!</h2>}
         <ul className={s.reproductions__list}>
           {isLoading
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)

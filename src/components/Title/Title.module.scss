@@ -1,3 +1,4 @@
+@import "./../../scss/mixins";
 .title {
   margin-top: 20px;
 }
@@ -11,21 +12,52 @@
 .title__text {
 }
 
+.title__img {
+  @include bigTablet() {
+    max-width: 380px;
+  }
+  @include normalTablet() {
+    max-width: 195px;
+  }
+  @include veryBigPhone() {
+    display: none;
+  }
+}
+
 .title__title {
-  font-size: 60px;
+  font-size: clamp(2.5rem, 2.045rem + 2.27vw, 3.75rem);
   font-weight: 500;
   line-height: 1.1;
   padding-bottom: 20px;
   span {
     color: var(--mainColor);
   }
+  @include bigTablet() {
+    font-size: 40px;
+  }
+  @include normalTablet() {
+    font-size: 36px;
+  }
 }
 
 .title__desc {
   padding-bottom: 60px;
+  @include bigTablet() {
+    font-size: 18px;
+  }
+  @include normalTablet() {
+    font-size: 16px;
+  }
 }
 
 .title__btn {
   margin-top: 60px;
   max-width: 227px;
+  @include normalTablet() {
+    max-width: 178px;
+    a {
+      text-align: center;
+      padding: 15px 0;
+    }
+  }
 }

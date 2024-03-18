@@ -3,14 +3,14 @@ import s from "./Header.module.scss";
 
 import logo from "./../../img/icons/logo.svg";
 import cart from "./../../img/icons/cart.svg";
+import { OpenCartType } from "./Types";
 
-export const Header: React.FC = () => {
+export const Header: React.FC<OpenCartType> = ({ setOpenCart, openCart }) => {
   const [openPopup, setOpenPopup] = useState(false);
 
-  const onClickOpenPopup = () => {
-    setOpenPopup(!openPopup);
-  };
+  const onClickOpenPopup = () => setOpenPopup(!openPopup);
 
+  const onClickOpenCart = () => setOpenCart !== undefined && setOpenCart(!openCart);
   return (
     <header className={s.header}>
       <div className="container">
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
                 </a>
               </li>
               <li className={s.header__item}>
-                <button className={s.header__link}>
+                <button onClick={onClickOpenCart} className={s.header__link}>
                   <img src={cart} alt="cart" />
                 </button>
               </li>

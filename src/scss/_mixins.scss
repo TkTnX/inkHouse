@@ -1,3 +1,9 @@
+@mixin bigTablet() {
+  @media (max-width: 1000px) {
+      @content
+  }
+}
+
 @mixin normalTablet() {
   @media (max-width: 689px) {
     @content;
@@ -8,6 +14,13 @@
   @media (max-width: 638px) {
     @content;
   }
+}
+
+@mixin veryBigPhone () {
+   @media (max-width: 510px) {
+    @content;
+       
+   }
 }
 
 @mixin bigPhone() {

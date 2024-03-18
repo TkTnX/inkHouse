@@ -1,3 +1,5 @@
+@import "./../../scss/mixins";
+
 .footer {
   margin-top: 70px;
   padding: 23px 0;
@@ -7,6 +9,12 @@
 .footer__wrapper {
   display: flex;
   justify-content: space-between;
+
+  @include bigTablet() {
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+  }
 }
 
 .footer__logo {
@@ -19,6 +27,15 @@
   justify-content: space-between;
   gap: 60px;
   margin-left: -70px;
+  @include bigTablet() {
+    margin-left: 0;
+  }
+  @include veryBigPhone() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .footer__itemTtitle {

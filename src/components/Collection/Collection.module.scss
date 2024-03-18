@@ -1,3 +1,5 @@
+@import "./../../scss/mixins";
+
 .collection {
   margin-top: 70px;
   padding: 70px 0 0;
@@ -8,6 +10,13 @@
   background-repeat: no-repeat;
   height: 574px;
   position: relative;
+
+  @include normalTablet() {
+    background-position: center right;
+  }
+  @include bigPhone() {
+    background-position: center center;
+  }
 
   &::after {
     content: "";
@@ -27,6 +36,15 @@
   max-width: 540px;
 }
 
+.collection__img {
+  @include normalTablet() {
+    max-width: 60px;
+  }
+  @include veryBigPhone() {
+    max-width: 50px;
+  }
+}
+
 .collection__title {
   display: flex;
   align-items: center;
@@ -37,6 +55,13 @@
   line-height: 1;
   font-weight: 500;
   color: #f4f4f4;
+
+  @include normalTablet() {
+    font-size: 30px;
+  }
+  @include veryBigPhone() {
+    font-size: 24px;
+  }
 }
 
 .collection__desc {
@@ -51,8 +76,14 @@
   padding-bottom: 20px;
   position: relative;
   z-index: 10;
+  @include veryBigPhone() {
+    font-size: 16px;
+  }
 }
 
 .collection__btn {
   margin-top: 40px;
+  @include veryBigPhone() {
+    margin-top: 10px;
+  }
 }

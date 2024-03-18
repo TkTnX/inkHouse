@@ -7,7 +7,7 @@ export const Collection: React.FC = () => {
       <div className="container">
         <div className={s.collection__wrapper}>
           <div className={s.collection__title}>
-            <img src={starImg} alt="звезда" />
+            <img className={s.collection__img} src={starImg} alt="звезда" />
             <h2 className={s.collection__titleText}>
               Новая коллекция французских авторов
             </h2>
