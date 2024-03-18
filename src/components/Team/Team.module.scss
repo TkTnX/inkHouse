@@ -1,0 +1,32 @@
+.team {
+  margin-top: 70px;
+}
+
+.team__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team__title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.team__text {
+  max-width: 635px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  align-self: flex-end;
+  margin-bottom: 44px;
+}
+
+.team__list {
+  margin-top: 20px;
+  display: flex;
+  gap: 30px;
+}

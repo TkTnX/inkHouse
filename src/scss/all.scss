@@ -5,6 +5,7 @@
 
   --btnsColor: #376b44;
   --btns-focus: #d4e8d9;
+  --btn-yellow: #eedb6d;
 
   --mainColor-light: #e1ede6;
   --text-color: #2c2d35;
@@ -77,6 +78,25 @@ a {
     background-color: var(--btnsColor);
     border-color: var(--btnsColor);
     color: #fff;
+  }
+}
+
+.btn-yellow {
+  font-size: 20px;
+  font-weight: 500;
+  background-color: var(--btn-yellow);
+  padding: 20px 60px;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    background-color: #faeb97;
+  }
+  &:focus {
+    border: 1px solid #a38314;
+  }
+  &:active {
+    border: 1px solid #a38314;
+    background-color: #a38314;
   }
 }
 
