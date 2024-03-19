@@ -14,9 +14,8 @@ export const ReproductionsCard: React.FC<CardType> = ({
   const dispatch = useDispatch();
   const cartList = useSelector(selectCartList);
 
+  const isItemInCart = cartList.some((card) => card.id === id);
   const onClickAddToCart = () => {
-    const isItemInCart = cartList.some((card) => card.id === id);
-
     isItemInCart
       ? null
       : dispatch(
@@ -32,7 +31,9 @@ export const ReproductionsCard: React.FC<CardType> = ({
       <h3 className={s.card__title}>{title}</h3>
       <p className={s.card__info}>{info}</p>
       <p className={s.card__price}>{price} руб</p>
-      <button className="btn-1">В корзину</button>
+      <button className="btn-1">
+        {isItemInCart ? "Товар добавлен!" : "В корзину"}
+      </button>
     </li>
   );
 };

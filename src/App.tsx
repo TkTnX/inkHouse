@@ -14,6 +14,19 @@ export const App: React.FC = () => {
       <main>
         <Title />
         <Reproductions />
+
+
+
+
+{/* // TODO  кнопка очистить корзину */}
+{/* // TODO  подсчёт цены в корзине */}
+{/* // TODO  кнопка купить в корзине */}
+
+
+
+
+
+
         <Collection />
         <Team />
       </main>
