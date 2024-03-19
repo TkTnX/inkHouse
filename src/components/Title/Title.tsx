@@ -3,16 +3,19 @@ import s from "./Title.module.scss";
 
 import titleImg from "./titleImg.png";
 import { Cart } from "../Cart/Cart";
-import { OpenCartType } from "../Header/Types";
+import { useSelector } from "react-redux";
+import { selectIsCartOpen } from "../../redux/slices/cart.slice";
 
-export const Title: React.FC<OpenCartType> = ({ openCart, setOpenCart }) => {
-  openCart
+export const Title: React.FC = () => {
+  const isOpenCart = useSelector(selectIsCartOpen);
+
+  isOpenCart
     ? (document.body.style.overflow = "hidden")
     : (document.body.style.overflow = "visible");
 
   return (
     <section className={s.title}>
-      {openCart && <Cart setOpenCart={setOpenCart} />}
+      {isOpenCart && <Cart />}
 
       <div className="container">
         <div className={s.title__wrapper}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Collection } from "./components/Collection/Collection";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
@@ -7,14 +7,12 @@ import { Team } from "./components/Team/Team";
 import { Title } from "./components/Title/Title";
 
 export const App: React.FC = () => {
-  const [openCart, setOpenCart] = useState(false)
-
   return (
     <>
-      <Header setOpenCart={setOpenCart} openCart={openCart} />
+      <Header />
 
       <main>
-        <Title setOpenCart={setOpenCart} openCart={openCart} />
+        <Title />
         <Reproductions />
         <Collection />
         <Team />

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import s from "./Categories.module.scss";
+import { useDispatch } from "react-redux";
+import { setCategory } from "../../redux/slices/category.slice";
 
 const categoryList = ["Франция", "Германия", "Англия"];
 
-export const Categories: React.FC<CategoriesProps> = ({ setCategoryValue }) => {
+export const Categories: React.FC = () => {
   const [categoryId, setCategoryId] = useState<number>(0);
+  const dispatch = useDispatch();
 
   const onClickSetCategory = (category: string, index: number) => {
     setCategoryId(index);
-    setCategoryValue(category);
+    dispatch(setCategory(category));
   };
 
   return (

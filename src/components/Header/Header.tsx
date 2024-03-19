@@ -3,14 +3,23 @@ import s from "./Header.module.scss";
 
 import logo from "./../../img/icons/logo.svg";
 import cart from "./../../img/icons/cart.svg";
-import { OpenCartType } from "./Types";
 
-export const Header: React.FC<OpenCartType> = ({ setOpenCart, openCart }) => {
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCartList,
+  selectIsCartOpen,
+} from "../../redux/slices/cart.slice";
+import { setOpenCart } from "../../redux/slices/cart.slice";
+
+export const Header: React.FC = () => {
   const [openPopup, setOpenPopup] = useState(false);
-
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const dispatch = useDispatch();
+  const cartList = useSelector(selectCartList);
   const onClickOpenPopup = () => setOpenPopup(!openPopup);
 
-  const onClickOpenCart = () => setOpenCart !== undefined && setOpenCart(!openCart);
+  const onClickOpenCart = () =>
+    setOpenCart !== undefined && dispatch(setOpenCart(!isCartOpen));
   return (
     <header className={s.header}>
       <div className="container">
@@ -39,6 +48,7 @@ export const Header: React.FC<OpenCartType> = ({ setOpenCart, openCart }) => {
               <li className={s.header__item}>
                 <button onClick={onClickOpenCart} className={s.header__link}>
                   <img src={cart} alt="cart" />
+                  <span>{cartList.length}</span>
                 </button>
               </li>
             </ul>
@@ -54,8 +64,9 @@ export const Header: React.FC<OpenCartType> = ({ setOpenCart, openCart }) => {
           <span></span>
           <span></span>
         </button>
-        <button className={s.header__link}>
+        <button onClick={onClickOpenCart} className={s.header__link}>
           <img src={cart} alt="cart" />
+          <span>{cartList.length}</span>
         </button>
       </div>
 

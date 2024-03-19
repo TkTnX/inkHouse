@@ -5,13 +5,16 @@ import { ReproductionsCard } from "../ReproductionsCard/ReproductionsCard";
 import axios from "axios";
 import { CardType } from "../ReproductionsCard/Types";
 import Skeleton from "../skeleton/Skeleton";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export const Reproductions: React.FC = () => {
   const [reprData, setReprData] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
-  const [categoryValue, setCategoryValue] = useState<string>("Франция");
-
+  const categoryValue = useSelector(
+    (state: RootState) => state.category.categoryName
+  );
   useEffect(() => {
     setIsLoading(true);
 
@@ -33,7 +36,7 @@ export const Reproductions: React.FC = () => {
       <div className="container">
         <div className={s.reproductions__top}>
           <h2 className={s.reproductions__title}>Репродукции</h2>
-          <Categories setCategoryValue={setCategoryValue} />
+          <Categories />
         </div>
         {isError && <h2>ошибка!</h2>}
         <ul className={s.reproductions__list}>

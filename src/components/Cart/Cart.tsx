@@ -1,12 +1,17 @@
 import React from "react";
-import { IoClose } from "react-icons/io5";
 import s from "./Cart.module.scss";
-import cardStyles from "./../ReproductionsCard/ReproductionsCard.module.scss";
-import img from "./01.jpg";
-import { OpenCartType } from "../Header/Types";
-export const Cart: React.FC<OpenCartType> = ({ setOpenCart }) => {
+import { IoClose } from "react-icons/io5";
+
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartList, setOpenCart } from "../../redux/slices/cart.slice";
+import { CartItem } from "../CartItem/CartItem";
+export const Cart: React.FC = () => {
+  const cartList = useSelector(selectCartList);
+
+  const dispatch = useDispatch();
+
   const onClickCloseCart = () =>
-    setOpenCart !== undefined && setOpenCart(false);
+    setOpenCart !== undefined && dispatch(setOpenCart(false));
 
   return (
     <div className={s.cart}>
@@ -15,32 +20,15 @@ export const Cart: React.FC<OpenCartType> = ({ setOpenCart }) => {
         <IoClose onClick={onClickCloseCart} className={s.cart__closeBtn} />
       </div>
 
-      <ul className={s.cart__list}>
-        <li className={cardStyles.card}>
-          <IoClose className={s.removeFromCart} />
-          <img src={img} alt="img" />
-          <p className={cardStyles.card__author}>Франсуа Дюпон</p>
-          <h3 className={cardStyles.card__title}>Процедура</h3>
-          <p className={cardStyles.card__info}>Цветная литография (40х60) </p>
-          <p className={cardStyles.card__price}>20 000 руб</p>
-        </li>
-        <li className={cardStyles.card}>
-          <IoClose className={s.removeFromCart} />
-          <img src={img} alt="img" />
-          <p className={cardStyles.card__author}>Франсуа Дюпон</p>
-          <h3 className={cardStyles.card__title}>Процедура</h3>
-          <p className={cardStyles.card__info}>Цветная литография (40х60) </p>
-          <p className={cardStyles.card__price}>20 000 руб</p>
-        </li>
-        <li className={cardStyles.card}>
-          <IoClose className={s.removeFromCart} />
-          <img src={img} alt="img" />
-          <p className={cardStyles.card__author}>Франсуа Дюпон</p>
-          <h3 className={cardStyles.card__title}>Процедура</h3>
-          <p className={cardStyles.card__info}>Цветная литография (40х60) </p>
-          <p className={cardStyles.card__price}>20 000 руб</p>
-        </li>
-      </ul>
+      {cartList.length === 0 ? (
+        <h2 className={s.EmptyCart}>Корзина пустая. Добавьте в корзину 1 картину</h2>
+      ) : (
+        <ul className={s.cart__list}>
+          {cartList.map((card) => {
+            return <CartItem key={card.id} {...card} />;
+          })}
+        </ul>
+      )}
     </div>
   );
 };
