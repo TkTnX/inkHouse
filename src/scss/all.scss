@@ -105,3 +105,13 @@ a {
   border-color: var(--btnsColor);
   color: #fff;
 }
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}

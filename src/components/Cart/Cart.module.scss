@@ -1,3 +1,5 @@
+@import "./../../scss/mixins";
+
 .cart {
   position: absolute;
   left: 0;
@@ -9,6 +11,10 @@
   overflow: auto;
 
   padding: 20px;
+
+  @include veryBigPhone() {
+    width: 100%;
+  }
 }
 
 .cart__title {

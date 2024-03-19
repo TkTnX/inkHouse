@@ -39,13 +39,17 @@ export const Reproductions: React.FC = () => {
           <Categories />
         </div>
         {isError && <h2>ошибка!</h2>}
-        <ul className={s.reproductions__list}>
-          {isLoading
-            ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-            : reprData.map((card: CardType) => {
-                return <ReproductionsCard key={card.id} {...card} />;
-              })}
-        </ul>
+        {reprData.length === 0 ? (
+          <h2 className={s.error}>Ошибка при получении данных!</h2>
+        ) : (
+          <ul className={s.reproductions__list}>
+            {isLoading
+              ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+              : reprData.map((card: CardType) => {
+                  return <ReproductionsCard key={card.id} {...card} />;
+                })}
+          </ul>
+        )}
       </div>
     </section>
   );

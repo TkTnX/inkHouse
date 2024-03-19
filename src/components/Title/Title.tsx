@@ -15,7 +15,9 @@ export const Title: React.FC = () => {
 
   return (
     <section className={s.title}>
-      {isOpenCart && <Cart />}
+      <div className={`${isOpenCart ? "fadeIn" : "fadeOut"}`}>
+        {isOpenCart && <Cart />}
+      </div>
 
       <div className="container">
         <div className={s.title__wrapper}>
