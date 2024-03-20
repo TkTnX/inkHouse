@@ -16,7 +16,7 @@ export const CartItem: React.FC<CardType> = (card) => {
   };
 
   return (
-    <li  className={cardStyles.card}>
+    <li className={cardStyles.card}>
       <IoClose onClick={onClickRemoveItem} className={s.removeFromCart} />
       <img src={card.img} alt="img" />
       <p className={cardStyles.card__author}>{card.author}</p>
